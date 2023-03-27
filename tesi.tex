@@ -1,0 +1,790 @@
+%{TO-DO_LIST}  DEPRECATED
+	%finire ultimi sottocapitoli
+	%se possibile trovare definizio di poli cyc e proceduea
+	%bibliografia!!
+	%conclusioni
+%\{TO-DO_LIST}
+
+\documentclass[a4paper, 12pt, oneside]{book}
+
+%\usepackage[style=philosophy-modern,hyperref,backref,square,natbib]{biblatex}
+\usepackage{verbatim}							%per i commenti
+\usepackage[latin1]{inputenc}					%
+\usepackage[italian]{babel}						%
+\usepackage[T1]{fontenc}						%
+%\usepackage{microtype}							%espansione dei font e protusione dei caratteri
+\usepackage{indentfirst}						%rientro sulla prima riga di ogni sezione
+\usepackage{url}								%per gli url
+\usepackage{booktabs}							%per le tabelle
+\usepackage[font=small, format=hang]{caption}	%per le didascalie
+\usepackage{graphicx}							%per le immagini
+\usepackage{eso-pic}							%per il frontespizio
+\usepackage{tikz}								%disegno programmato
+%\usepackage[active,tightpage]{preview}			%
+\captionsetup[table]{position=top}				%
+
+\pagestyle{plain}								%numeri di pagina in basso al centro
+
+\linespread{1.3}								%interlinea 1 e mezzo
+
+\addto\captionsitalian{\renewcommand{\bibname}{Riferimenti Normativi e Sitografia}}%\addto\captionsitalian{\renewcommand{\refname}{Testi consultati}}%\renewcommand\bibname{New Title}
+
+%\PreviewEnvironment{tikzpicture}
+%\setlength\PreviewBorder{5pt}
+\usetikzlibrary{trees}
+
+\newcommand{\omissis}{[\dots\negthinspace]}
+
+\begin{document}
+	%
+	\tikzstyle{every node}=[draw=black,thick,anchor=west]
+	\tikzstyle{selected}=[draw=red,fill=red!30]
+	\tikzstyle{optional}=[dashed,fill=gray!50]
+	%
+
+	%FRONTESPIZIO
+	\begin{titlepage}
+		\null
+		\AddToShipoutPicture*{\includegraphics{frontespizio}}
+	\end{titlepage}
+	
+	%DEDICA
+	\begin{titlepage}
+		%\null
+		\begin{flushright}
+			a zia Guglielma
+		\end{flushright}
+		%\AddToShipoutPicture*{\includegraphics{ringraziamenti}}
+	\end{titlepage}
+
+	%INDICE
+	\clearpage
+	\thispagestyle{empty}
+	\tableofcontents
+	
+	\frontmatter
+	
+	%INTRODUZIONE
+	\chapter{Introduzione}
+		L'intero universo aziendale \`e in continua trasformazione, dettato dal fatto che l'informatica ha acquisito un ruolo fondamentale sia per aumentare la qualit\`a  dei servizi offerti che per contenerne i costi. In un ambito pubblico e di fondamentale importanza come pu\`o essere quello della sanit\`a, questo cambiamento \`e da seguire con estrema attenzione.
+		
+		Questo elaborato tratta della mia esperienza presso \emph{l'Azienda Ospedaliera dell'Ospedale di Circolo di Melegnano}, che sta vivendo un nuovo periodo di informatizzazione. Questa \`e una sfida sia per la \emph{Regione Lombardia} che per un laureando come il sottoscritto che si \`e trovato in un mondo aziendale complesso formato da diverse professionali\`a spesso molto lontane come ambiti con l'aggiunta della criticit\`a dei servizi che vengono erogati in un ambiente ospedaliero.
+		
+		Il lavoro principale che ho dovuto svolgere riguarda la stesura di procedure e policy a supporto dei sistemi informativi aziendali, visto che quelli precedenti erano da aggiornare o addirittura assenti. Per fare questo ho dovuto arricchire la mia preparazione ed esperienza passata vivendo all'interno della realt\`a ospedaliera, confrontandomi ad esempio sia con i dipendenti di formazione informatica che non come tecnici e medici.
+		
+		Quindi ho approfittato nello svolgere altre attivit\`a lavorative in parallelo (in ospedale c'\`e sempre tanto da fare!) alla definizione di procedure e policy, anche perch\`e per la natura stessa del lavoro principale che ho dovuto affrontare, ogni attivit\`a che si svolge all'interno dell'ospedale che riguarda i sistemi informativi \`e ovviamente collegata alle regole che i dipendenti devono seguire. Ad esempio ho dato supporto all'avvio di servizi della \emph{Regione Lombardia} come il GASS\footnote{Gestione Accesso Semplificato Servizi cittadino, abilita la fruizione del Fasciolo Sanitario Elettronico online da parte del Cittadino tramite una modalit\`a di accesso semplificato complementare a quello attuale ma senza lettore di smart card e PIN} e all'avvio del nuovo servizio di \emph{Fleet management}.
+
+		Per la stesura di policy e procedure ho lavorato a stretto contatto con un impiegato di lunga esperienza nella gestione a livello aziendale di sistemi informatici, mi \`e stata messa a disposizione una postazione di lavoro a fianco alla sua ed abbiamo lavorato in \emph{team} su tutti i documenti prodotti. Abbiamo successivamente organizzato delle riunioni con i direttori e altro personale per scambi di opinioni sui punti specifici trattati nelle policy e o procedure, sia durante la loro stesura che ad avvenuto completamento.
+		
+		Dopo un'introduzione sull'organizzazione aziendale, nel secondo capitolo parlo della ``Procedura consegna credenziali di accesso ai servizi IT'', che sar\`a consegnata ad ogni dipendente a cui siano stati rilasciate le credenziali di accesso alla rete aziendale; gli obiettivi di questa procedura sono quelli di fornire al personale al momento dell'entrata in servizio delle informazioni di base (istruzioni per l'accesso ai Servizi dei Sistemi Informativi Aziendali (SIA) per accedere alla rete aziendale tramite dotazione informatica (PdL, Postazione di lavoro) ad uso personale e/o condiviso, per accedere alla posta elettronica aziendale tramite dotazione informatica (PdL) ad uso personale e/o condiviso e per eseguire richieste di supporto al servizio di Help Desk.
+		
+		Nel terzo capitolo parlo della ``Procedura di gestione fermo programmato e non di interruzione dell'energia elettrica'', la quale nasce al fine di gestire con il minor disagio possibile per l'utenza i casi dell'interruzione di energia elettrica avvenuti per causa di forza maggiore o durante interventi di riparazione o di manutenzione programmata.
+		
+		Nel quarto capitolo illustro il lavoro svolto riguardante la ``Policy erogazione servizi informatici sulle postazioni di lavoro'', questa policy \`e la madre di un'importante numero di altre policy e procedure come ad esempio la ``Procedura consegna credenziali di accesso ai servizi IT''; di conseguenza vi \`e stato dedicato pi\`u tempo e riunioni rispetto ad altri lavori.
+		
+		Nell'ultimo capitolo riassumo altre mansioni da me svolte all'interno dell'Azienda in questo periodo di stage.
+		
+		
+	\mainmatter
+	
+	\begin{table}[tb]
+		\caption{Tabella degli acronimi e delle abbreviazioni}
+		\label{tab:zero}
+		\centering
+		\begin{tabular}{lll}
+			\toprule
+			Acronimo&Significato\\
+			\midrule
+			AO		&	Azienda Ospedaliera\\
+			GASS	&	Gestione Accesso Semplificato Servizi cittadino\\
+			POA		&	Piano Organizzativo Aziendale\\
+			SIA		&	Sistemi Informativi Aziendali\\
+			SC		&	Struttura Complessa\\
+			SITRA	&	Servizio Infermieristico Tecnico Sanitario della Riabilitazione\\
+			PO		&	Presidio Ospedaliero\\
+			Pol.	&	Poliambulatorio\\
+			PdL		&	Postazione di Lavoro\\
+			UU.OO	&	Unit\`a Operative\\
+			UOC		&	Unit\`a Operativa Complessa\\
+			DPR		&	Decreto del presidente della Repubblica\\
+			VPN		&	Virtual Private Network\\
+			TLC		&	Telecomunicazioni\\
+			SEA		&	Segnalazione Eventi Anomali\\
+			RTF		&	Rich Text Format\\
+			CUP		&	Centro Unico Prenotazioni\\
+			CRS		&	Carta Regionale dei Servizi\\
+			OTP		&	One Time Password\\
+			FSE		&	Fascicolo Sanitario Elettronico\\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+
+	
+	%INIZIO DEI CAPITOLI
+	\chapter{L'organizzazione aziendale}
+		Per una pi\`u completa trattazione del Piano Organizzativo Aziendale consultare il Piano Organizzativo Aziendale, POA\cite{POA}. \emph{L'azienda Ospedaliera Ospedale di Circolo di Melegnano} non comprende solo l'omonimo presidio ospedaliero di Melegnano, quello di Vizzolo Predabissi, ma \`e composta da altri 5 presidi e 14 poliambulatori, distribuiti un po in tutte l'interland milanese (vedi tabella \ref{tab:uno}); per comodit\`a gli addetti ai lavori suddividono i presidi in due aree geografiche: quella Nord e quella Sud.
+		
+		Questa \`e un'ulteriore complicanza aggiuntiva nella gestione aziendale, vista la dislocazione abbastanza ampia delle sedi, anche da un punto di vista informatico e sistemistico.
+		
+		Una delle finalit\`a principali delle nuove procedure interne aziendali \`e il raggiungimento di una certa omogenit\`a regolamentale, si tender\`a quindi nello azzerare possibili pericolose eccezioni e nel fornire gli stessi servizi informatici indipendentemente dalla sede.
+		
+		\begin{table}[tb]
+			\caption{Aree geografiche/sedi dell'azienda}
+			\label{tab:uno}
+			\centering
+			\begin{tabular}{lll}
+				\toprule
+				Area geografica	&	Citt\`a e interland		&	Indirizzo\\
+				\midrule
+				Area Sud		&	P.O. Vizzolo Predabissi	&	Via Pandina 1\\
+								&	Pol. Melegnano			&	Via Cavour 21\\
+								&	Pol. Paullo				&	Via Mazzini 17/19\\
+								&	Pol. Peschiera Borromeo	&	Via Matteotti 25\\
+								&	Pol. San Giulino Mil.se	&	Via Cavour 15\\
+								&	Pol. San Donato Mil.se	&	Via De Gasperi ang. Fermi\\
+								&	Sede San Donato Mil.se	&	Via Ssegnano\\
+								&	Pol. Binasco			&	Via Matteotti 32\\
+								&	Pol. Pieve Emanuele		&	Piazza Puccini 4\\
+								&	Pol. Opera				&	Via Allende 19\\
+								&	Pol. Rozzano			&	Via Dei Glicini\\
+				Area Nord		&	P.O. Cernusco S/N		&	Via Uboldo 2\\
+								&	P.O. Melzo				&	Via Volontari Del Sangue\\
+								&	P.O. Gorgonzola			&	Via Bellini\\
+								&	P.O. Cassano d'Adda		&	Via Quintino di Vona 41\\
+								&	P.O. Vaprio d'Adda		&	Via Don Moletta 22\\
+								&	Pol. Pioltello			&	Via Aldo Moro 22\\
+								&	Pol. Segrate			&	Via Amendola 3\\
+								&	Pol. Vimodrone			&	Via Cesare Battisti 27\\
+								&	Pol. Cassina de' Pecchi	&	Via Mazzini\\
+								&	Pol. Trezzo d'Adda		&	Piazza Gorizia 2\\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+		
+		\section{SIA}
+			Come stagista sono entrato a far parte temporaneamente per l'Unit\`a Operativa Complessa SIA (Sistemi Informativi Aziendali), che cura gli adempimenti relativi all'acquisizione, all'organizzazione, al coordinamento ed alla gestione delle risorse informative ed informatiche dell'Azienda, all'istruttoria, trattazione e definizione di ogni problema che, per quanto di competenza, viene attribuito dalla Direzione Strategica. In pratica \`e la mente della gestione di tutti i sistemi informatici aziendali, tranne ovviamente degli apparecchi elettromedicali o di altri sistemi gestiti da terzi, ma comunque \`e il SIA che gestisce la rete intranet aziendale, ad esempio. A capo della SIA vi \`e un direttore, affiancato da un vicedirettore, una segreteria, un insieme di sistemisti, tecnici e manager e dei cosidetti ``coacher'', che si occuppano della formazione all'interno dell'azienda oltre ad offrire supporto a particolari applicativi ospedalieri. A supporto del SIA vi \`e un servizio esterno di \emph{helpdesk} ed ulteriori consulenti.
+		
+		\section{Direzione Strategica}
+			%pag 60 del POA
+			\subsection{Direttore Generale}
+				Il Direttore Generale quale rappresentante legale dell'Azienda, esercita tutti i poteri di gestione, assicuranto imparzialit\`a e buon andamento dell'azione amministrativa secondo criteri di efficacia, efficienza ed economicit\`a, avvalendosi del contributo della Direzione Strategia, della Struttura Aziendale e degli Staff, ai sensi dell'art. 3, comma 6 del D.Lgs. n. 502/1992 e successive modificazioni ed integrazioni.
+			\subsection{Direttore Amministrativo}
+				Il direttore amministrativo dirige, a livello strategico, i servizi amministrativi con particolare riferimento al buon andamento e all'imparzialit\`a dell'azione amministrativa, agli aspetti giuridici - amministrativi ed economici - finanziari, alle strategie di gestione del patrimonio e all'integrazione organizzativa. Contribuisce inoltre, alla pianificazione strategica al fine di realizzare efficienza, efficacia e qualit\`a dei servizi amministrativi dell'Azienda.
+			\subsection{Direttore Sanitario}
+				Il Direttore Sanitario Aziendale definisce le strategie, gli orientamenti generali e le priorit\`a della pianificazione strategica, indirizza e coordina l'azione dei Dipartimenti Sanitari, definisce le problematiche sanitarie al fine di realizzare il raggiungimento dell'efficacia, efficienza e qualit\`a dei servizi sanitari.
+				
+		\section*{}
+			La figura \ref{fig:org} mostra in maggior dettaglio tramite un organigramma l'organizzazione delle direzioni mediche di presidio e i dipartimenti.
+		
+		\begin{figure}[p]%[tb]
+			\caption{Organigramma che riguarda le direzioni mediche di presidio, i dipartimenti, le strutture complesse e le strutture semplici dipartimentali in conformit\`a alle disposizioni regionali in materia di POA}
+			\label{fig:org}
+			%\centering
+			\includegraphics[scale=0.42]{img/org}%
+		\end{figure}
+		
+	\chapter{Procedura consegna credenziali di accesso ai servizi SIA}
+	\label{cap:primo}
+		La prima procedura su cui ho dovuto lavorare \`e stata una procedura destinata ai neo assunti per la comunicazione delle credenziali di accesso alla rete aziendale.
+		\section{Scopo}
+			Gli obiettivi di questa procedura sono:
+			\begin{itemize}
+				\item fornire al personale al momento dell'entrata in servizio delle informazioni di base (istruzioni per l'accesso ai Servizi del Sistema Infotmativo Aziendale (SIA) per accedere alla rete aziendale tramite dotazione informatica (PdL, Postazione di lavoro) ad uso personale e/o condiviso;
+				\item fornire al personale al momento dell'entrata in servizio delle informazioni di base (istruzioni per l'accesso ai servizi SIA) per accedere alla posta elettronica aziendale tramite dotazione informatica (PdL) ad uso personale e/o condiviso;
+				\item fornire al personale al momento dell'entrata in servizio delle informazioni di base (istruzioni per l'accesso as servizi SIA) per eseguire richieste di supporto al servizio di Help Desk.
+			\end{itemize}
+
+		\section{Campo di applicazione}
+			Questa procedura \`e il documento di istruzioni di base per l'accesso alla rete aziendale e si applica a tutti i dipendenti a cui siano stati rilasciate le credenziali di accesso alla rete aziendale; il Regolamento si applica in tutte le UU.OO.\footnote{UU.OO. Unit\`a Operative} dell'Azienda Ospedaliera e consente di definire e rendere applicabile il rapporto con gli utenti interni e garantire la capacit\`a dell'Azienda Ospedaliera di governare correttamente la domanda e l'utilizzo.
+			
+		\section{Riferimenti}
+			All'interno di questa procedura per i neoassunti ci sono molti riferimenti legislativi e non sia interni che esterni\cite{primi_ref1}\cite{primi_ref2}\cite{primi_ref3}\cite{primi_ref4} come ad esempio il Regolamento sui procedimenti disciplinari riguardanti il personale dipendente dell'azienda ospedaliera ``Ospedale di circolo di Melegnano'', il Piano Organizzativo Aziendale approvato con DGR n.VIII/011381 del 10 febbraio 2010 ed il piano di pronta disponibilit\`a dell'anno corrente.
+			
+		\section{Descrizione generale del documento}
+			Al momento dell'entrata in servizio la/il nuovo dipendente ricever\`a dall'U.O.C.\footnote{Unit\`a Operativa Complessa} Gestione Risorse Umane, contestualmente al badge per l'accesso fisico, anche il documento con le istruzioni per l'accesso ai servizi SIA nel quale saranno riportate le informazioni di base per poter accedere tramite PdL aziendale alla rete SIA e ai servizi di posta elettronica e ai servizi di supporto per problemi informatici (Help Desk).
+			
+			A tutti i dipendenti vengono create al momento di entrata in servizio
+			\begin{itemize}
+				\item un account con relativa password per l'accesso alla rete aziendale;
+				\item una casella di posta elettronica sul dominio AO Melegnano.
+			\end{itemize}
+			
+			Viene spiegato come utilizzare e resettare la password, la gestione degli strumenti di identificazione/autentificazione e tutte le varie regole di utilizzo, diritti e doveri del dipende anche riguardarti la privacy e la sicurezza aziendale.
+			
+			Premesso che i documenti aziendali ritenuti \emph{importanti} devono sempre essere copiati su dispositivi di rete sicuri (aree condivise di rete), viene pertanto sconsigliata l'archiviazione locale sulla propria postazione di lavoro dei documenti di lavoro; vengono elencati i tipi di memoria e/o scambio dati riconosciuti resi disponibili dall'azienda e ne vengono proibiti altri; come ad esempio \`e tassativamente vietata l'installazione di strumenti finalizzati alla realizzazione di sitemi di condivisione e scambio di documenti.
+			
+			Vi \`e una sezione dedicata al servizio di Help Desk, che \`e il primo punto di contatto a cui segnalare problematiche relative ai servizi informatici erogati dall'azienda. Nello specifico il servizio \`e raggiungibile tramite richiesta telefonica componendo da telefono fisso o mobile un numero verde oppure attraverso una richiesta scritta tramite posta elettronica. Viene sottolineato il fatto che in ogni caso dovr\`a essere rilasciato dal servizio un numero che indicher\`a il numero di presa in carico della problematica (Trouble Ticket), utile a fronte di eventuali solleciti.
+			
+			Negli allegati di questa procedura \`e presente un documento che spiega al dipendente come accedere alla propria casella di posta elettronica al di fuori dall'azienda.
+			
+	\chapter{Procedura di gestione fermo programmato e non di interruzione dell'energia elettrica}
+		La fornitura di energia elettrica deve essere effettuata con continuit\`a 24 ore su 24 e in ogni giorno dell'anno, salvo i casi di forza maggiore e durante gli interventi di riparazione o di manutensione programmata; al fine di gestire nel migliore dei modi e con il minor disagio possibile per l'utenza questi casi, i Sistemi Informativi Aziendali (SIA), ha elaborato una procedura per il piano di gestione delle interruzioni del servizio.
+		
+		Il SIA si \`e prefissato l'ottimizzazione delle proprie risorse, adottando la suddetta procedura da applicare in caso di interruzione della fornitura di energia elettrica tale procedura \`e parte essenziale nella realizzazione del Piano di attuazione delle interruzioni al servizio.
+		
+		\section{Servizi informatici prioritari (applicazioni critiche)}
+		Per ciascun servizio/applicazione SIA identifica gli utenti prioritari,  cio\`e quelli che hanno particolare bisogno dell'erogazione e per i quali occorre fare il possibile per garantire il servizio. Tali utenti devono essere avvisati in caso possano verificarsi problemi alla qualit\`a e/o alla continuit\`a del servizio erogato.
+		Sar\`a predisposto un modulo nel quale dovranno essere individuati questi servizi e per ciascuno di essi deve essere identificata la persona designata come contatto ufficiale.
+		
+		\section{Interruzioni programmate}
+		Le interruzioni programmate possono essere originate da manutenzioni programmate dal gestore (manutenzioni ordinarie e/o straordinarie) oppure da guasti particolari la cui riparazione pu\`o essere programmata successivamente senza interferire con la qualit\`a del servizio.
+		
+		La procedura da adottarsi nel caso di interruzione programmata viene in seguito riassunta:
+		\begin{itemize}
+			\item analisi della tipologia dell'intervento dal punta di vista tecnico nonch\'e i tempi previsti per l'esecuzione e numero e tipologia degli utenti coinvolti;
+			\item valutazione di possibili problemi per il mantenimento dei livelli qualitativi dei servizi erogati;
+			\item definizione delle modalit\'a operative dell'interruzione del servizio (tipologia del disservizio);
+			\item informazione all'utenza ed agli Enti preposti (a seconda degli utenti coinvolti e della importanza dell'intervento in termini di durata e delle strutture/reparti coinvolti) con  almeno 48 ore di preavviso. Nelle comunicazioni saranno specificati l'inizio dell'interruzione elettrica e la presumibile durata.
+		\end{itemize}
+		
+		Il gestore dell'impianto di fornitura  di energia elettrica (Ufficio Tecnico) una volta analizzata la tipologia di intervento, definisce la modalit\`a operative dell'interruzione del servizio che vengono comunicate attraverso i canali di informazione con almeno 48 ore di preavviso a tutti gli utenti interessati.
+		
+		\section{Interruzioni non programmate}
+		In considerazione della gravit\`a e della capacit\`a di risoluzione delle emergenze, le interruzioni di servizio non programmate possono essere:
+		\begin{itemize}
+			\item \emph{Emergenze Ordinarie}, si intendono le situazioni generate da eventi quotidiani o da eventi Straordinari di portata limitata. Nelle emergenza ordinaria il Gestore (Ufficio Tecnico) valuta il livello di criticit\`a ed attiva le proprie procedure.
+			\item \emph{Emergenze Straordinarie}, si intendono le situazioni generate per lo pi\`u da eventi straordinari di grande portata (alluvione, terremoto, siccit\`a, inquinamento fonti, sabotaggio, atti di terrorismo, ecc\dots) che possono produrre una interruzione localizzata o estesa del servizio. Sono rappresentate da tutti gli eventi che in relazione alla gravit\`a %\begin{comment}  (danno materiale consistente a cose e/o persone, rottura di condotte, frane, sprofondamenti, incidenti stradali, ecc.)\end{comment}
+			non sono pi\`u risolvibili con dotazione umana e strumentale societaria. Richiedono pertanto l'intervento, oltre che dei dispositivi societari, di altri soggetti deputati alla gestione di situazioni di pericolo, la gestione dell'emergenza viene coordinata nell'ambito degli interventi di Protezione Civile in base al Piano Provinciale.
+		\end{itemize}
+		Nel casi di situazioni di emergenza straordinaria il Gestore potrebbe essere impossibilitato ad informare preventivamente gli utenti interessati dall'interruzione ma \`e comunque tenuto a tempestive comunicazioni, indicando anche, se possibile, la prevedibile durata dell'interruzione del servizio.
+		
+		La figura \ref{fig:dia_emergenze} riassume la procedura con un diagramma di flusso. 
+		
+		\section{Ruoli e responsabilit\`a}
+		In questa procedura verranno descritti solo i ruoli delle strutture tecniche coinvolte: SIA in qualit\`a di Unit\`a Operativa erogatrice dei Servizi Informatici e Ufficio Tecnico in quanto gestore degli impiani elettrici e del gruppo di continuit\`a; la figura \ref{fig:workflow} mostra il \emph{workflow} che \`e stato predisposto.
+		
+		\begin{figure}
+			\caption{Workflow di gestione fermo programmato e non dell'energia elettrica}
+			\label{fig:workflow}
+			\includegraphics[scale=0.56]{img/flow}%
+		\end{figure}
+		
+		%\section*{}
+		%La figura \ref{fig:dia_emergenze} mostra il bla bli blu.
+		
+		\begin{figure}
+			\caption{Diagramma riassuntivo della gestione dell'interruzione del servizio di energia elettrica}
+			\label{fig:dia_emergenze}
+			\includegraphics[scale=0.48]{img/dia_emergenze}
+		\end{figure}
+		
+	\chapter{Policy erogazione servizi informatici sulle postazioni di lavoro}
+		Questa policy \`e la madre di un importante numero di altre policy e procedure come ad esempio quella del capitolo \ref{cap:primo}; di conseguenza vi \`e stato dedicato pi\`u tempo e riunioni rispetto ad altri lavori. La figura \ref{fig:dia} rende un'idea di alcune policy e di conseguenza procedure che discendono da questa policy.
+		\begin{figure}
+			\caption{Albero di dipendenza della Policy erogazione servizi informatici sulle postazioni di lavoro}
+			\label{fig:dia}
+			\begin{tikzpicture}	[
+				grow via three points={one child at (0.5,-0.7) and
+				two children at (0.5,-0.7) and (0.5,-1.4)},
+				edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+				%edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+				\node {Policy erogazione servizi informatici}% sulle postazioni di lavoro}
+					child [missing] {}
+					child { node {Procedure erogazione servizi informatici sulle postazioni di lavoro}}		
+					child { node {Procedure di richiersta account amministrativi}}
+					child { node {Procedure per attivit\`a \& processi di auditing}}
+					child { node {Procedura segnalazione eventi anomali}}
+					child { node {Procedura di gestione account applicativi}}
+					child { node {Procedura di connessione fornitori esterni}}
+					child { node {Procedura operativa amministratori di sistema}}
+					%child [missing] {}							
+					child { node {\dots}};
+			\end{tikzpicture}
+		\end{figure}
+		
+		Garantire la sicuezza delle informazioni di natura aziendale e personale\footnote{Vedi il paragrafo \ref{sec:def}}, oltre che un problema di carattere tecnico, \`e un problema di carattere organizzativo. \`E quindi fondamentale che il personale dipendente ed i terzi autorizzati utilizzino in modo corretto, consapevole e responsabile le risorse informatiche aziendali e i dati a cui hanno accesso e rispettino sia le disposizioni specificamente previste in questa policy che le politiche e le altre norme aziendali che disciplinano il comportamento, le responsabilit\`a ed i ruoli nell'ambito della sicurezza.
+		
+		In relazione a ci\`o, l'azienda ospedaliera si riserva il diritto, fermo restando il rispetto di quanto previsto dalle leggi vigenti, di impedire e contestare all'utilizzatore usi distorti delle proprie infrastrutture informatiche e dei propri sistemi informatici.
+		L'azienda si riserva inoltre la possibilita di segnalare all'Autorit\`a Giudiziaria ogni possibile violazione constituente reato e di porre in essere tutte le azioni necessarie per il risarcimento del danno eventuale.
+		
+		Ai soli fini del rispetto delle regole e delle cautele rientrano nel concetto di \emph{dotazioni informatiche}, qualora utilizzati per accedere via browser alle caselle di posta elettronica aziendali, anche i telefoni cellulari.
+		
+		\section{Alcune definizioni}
+			\label{sec:def}
+			Per ``informazioni di natura aziendale'' si intendono le informazioni, generalmente di esclusiva propriet\`a dell'Azienda Ospedaliera di Melegnano, riferite direttamente e/o indirettamente alla natura ed alle attivit\`a dell'Azienda (dati, notizie, trattati, elaborati, ecc\dots).
+
+			Per ``informazioni di natura personale'' si intendono i dati personali relativi a persone fisiche, diversi dall'Azienda Ospedaliera di Melegnano ed il cui trattamento deve essere conforme al D.Lgs. 196 del 30 giugno 2003\cite{lol_4} s.m.i.. Secondo quanto stabilito da tale decreto, un dato personale \`e qualunque informazione relativa a persona fisica, anche indirettamente, mediante riferimento a qualsiasi altra informazione, ivi compreso un numero di identificazione personale. Tra i dati personali il D.Lgs n. 196/03 distingue i dati sensibili ed i dati giudiziari: un dato sensibile \`e un dato personale idoneo a rivelare l'origine razziale et etnica, le convinzioni religiose, filosofiche o di altro genere, le opinioni politiche, l'adesione a partiti, sindacati, associazioni od organizzazioni a carattere religioso, filosofico, politico o sindacale, nonch\'e i dati personali idonei a rivelare provvedimenti di cui all'articolo 3, comma 1, lettere da a) a o) da r) a u) del D.P.R. 14 novembre 2002, n. 313\cite{lol_5}, in materia di casellario giudiziale, di anagrafe delle sanzioni amministrative dipendenti da reato e dei relativi carichi pendenti, o la qualit\`a di imputato o di indagato ai sensi degli articoli 60 e 61 del codice di procedura penale.
+		
+		
+		\section{Ruoli e responsabilit\`a}
+		Sia i dipendenti interni che i dipendenti esterni(dipendenti e/o collaboratori di Fornitori dell'Azienda Ospedaliera di Melegnano, stagiaire, tirocinanti, ecc\dots) sono responsabili dell'utilizzo corretto e consapevole delle dotazioni informatiche e delle abilitazioni affidategli, pertanto, essi sono tenuti ad adottare tutte le cautele prescritte a tutela sia del loro corretto funzionamento che delle informazioni aziendali e/o personali accessibili o elaborate per loro tramite. I dipendenti esterni che devono accedere alle informazioni e/o agli strumenti informatici dell'Azienda Ospedaliera di Melegnano devono sottoscrivere una Dichiarazione di riservatezza e consenso\footnote{ex D.Lgs. 196/03}.
+		
+			\subsection{Responsabile di Unit\`a Operativa}
+			Ai fini di questa policy, \`e il Responsabile di Unit\`a Operativa (di seguito UOC) colui il cui ruolo risulta nel documento POA (Piano Organizzativo Aziendale). Ogni Responsabile di Unit\`a Operativa ha la responsabilit\`a di verificare il corretto utilizzo delle dotazioni informatiche da parte dei propri collaboratori e dei soggetti esterni che, in virt\`u di contratti/rapporti di collaborazione gestiti nell'ambito della propria Unit\'a, hanna necessit\`a di disporre di strumenti informatici.
+				
+			\subsection{SIA}
+			Il SIA ha la responsabilit\`a di predisporre, configurare e manutenere le dotazioni informatiche\footnote{Tutti i dispositivi connessi alla rete aziendale intranet devono essere censiti e gestiti da SIA. Eventuali deroghe devono obbligatoriamente essere richieste per iscritto al competente ente di essa, indicando la motivazione ed il nominativo del responsabile dell'esercizio del server (owner), da UOC. I server eventualmente non gestiti da SIA devono in ogni caso essere eserciti nel rispetto delle regole da essa stabilite.} e le abilitazioni all'accesso ai sistemi informativi in coerenza con quanto stabilito dalle politiche di sicurezza aziendali.
+			\`E responsabilit\`a dell'utente segnalare al SIA eventuali situazioni riscontrate di utilizzo illecito delle dotazioni o di potenziale rischio per la sicurezza aziendale.
+			
+		\section{Utilizzo delle dotazioni informatiche}
+			Le dotazioni informatiche sono beni di propriet\`a dell'Azienda affidati ai dipendenti per lo svolgimento delle mansioni assegnate. Il loro utilizzo deve sempre ispirarsi ai principi di diligenza e correttezza, ovvero a quei principi che sostengono ogni atto o comportamento posto in essere nell'ambito del rapporto di lavoro. Di conseguenza, si ritiene necessario adottare comuni regole interne di comportamento dirette ad evitare azioni inconsapevoli o non in linea con la politica dell'Azienda.
+			Le dotazioni informatiche devono, in particolare, essere:
+			\begin{enumerate}
+				\item conservate con diligenza conformemente a quanto previsto dagli artt. 1768, 1804 e 2104 del Codice Civile;
+				\item utilizzate esclusivamente per fini professionali (in relazione, ovviamente, alle mansioni assegnate) ed in modo coerente con gli obiettivi aziendali, rispettoso delle regole di buon senso e conforme alle leggi vigenti in materia (es. art. 615 ter Codice penale\cite{lol_8}).
+			\end{enumerate}
+			A tale proposito, non \`e consentito l'utilizzo delle infrastrutture e delle dotazioni informatiche in difformit\`a da quanto indicato nella policy in questione. I dipendenti ed i terzi autorizzati sono, inoltre, tenuti a conoscere ed attuare le politiche aziendali in tema di sicurezza delle informazioni al fine di garantirne la riservatezza, l'integrità e la disponibilit\`a.
+			Il furto, lo smarrimento o il danneggiamento delle dotazioni informatiche deve essere denunciato alle Autorità competenti (Carabinieri o Polizia di Stato) e all'Azienda. Le denunce costituiscono adempimenti necessari per l'eventuale reintegro/riparazione del bene sottratto/smarrito/danneggiato.
+					
+		\section{Accesso ai sistemi informativi}
+			\subsection{Servizi di rete}
+				La connessione di qualsiasi dotazione informatica alla rete aziendale deve essere resa tecnicamente possibile solo dopo il riconoscimento dell'indirizzo fisico della scheda di rete.
+					\subsubsection{Dipendenti}
+						L'accesso ai servizi di rete \`e reso possibile ai dipendenti mediante assegnazione di una postazione di lavoro e di un User Account (user id + password)\footnote{Uno stesso user id, fatta eccezione per gli amministratori di sistema relativamente ai sistemi operativi che prevedono un unico livello di accesso per tale funzione, non deve, neppure in tempi diversi, essere assegnato a persone diverse.}. I dipendenti sono abilitati all'utilizzo della posta elettronica, all'accesso alla intranet aziendale e, su richiesta formale del Responsabile dell'Unit\`a Operativa di appartenenza, all'accesso ai file server della stessa. Qualsiasi richiesta di abilitazione all'accesso a file server di Unit\`a Operative diverse da quella di appartenenza deve essere autorizzata, su richiesta formale e motivata del Responsabile dell'Unit\`a Operativa di appartenenza del dipendente interessato, dall'Ente che ha la competenza sui dati aziendali in oggetto (c.d. ``proprietario dei dati''). Nel richiedere/concedere tali autorizzazioni i Responsabili devono ispirarsi ai principi ``accesso sulla base della effettiva necessità di conoscere'' e ``accesso con il minimo privilegio operativo necessario''.
+
+						Qualsiasi variazione attinente il rapporto di lavoro del dipendente incidente sui diritti di accesso ai servizi di rete o a file server deve essere tempestivamente notificata a SIA a cura:
+						\begin{itemize}
+							\item di Gestione delle Risorse Umane, per la disattivazione immediata dell'account, in caso di risoluzione del rapporto di lavoro;
+							\item del Responsabile dell'Unità Operativa cedente, per l'immediata disabilitazione all'accesso a file server contenenti dati utilizzati dall'Unità cedente, in caso di trasferimento del dipendente ad altra unit\`a Operativa.
+						\end{itemize}
+					\subsubsection{Dipendenti esterni}
+						L'accesso ai servizi di rete \`e reso possibile ai dipendenti esterni (dipendenti e collaboratori di fornitori dell'Azienda Ospedaliera di Melegnano, stagiaire, tirocinanti, ecc\dots) mediante assegnazione, su richiesta formale del Responsabile dell'Unit\`a Operativa che intrattiene il rapporto di collaborazione, di uno User Account (user id + password)\footnote{La richiesta di User Account per Stagiaire e Tirocinanti può essere avanzata esclusivamente da Gestione delle Risorse Umane.}. La richiesta di attribuzione dell'User Account deve essere sempre accompagnata da un'apposita ``Dichiarazione di riservatezza e consenso ex D.Lgs. 196/03'' sottoscritta dal terzo. L'account attribuito ai dipendenti esterni \`e valido fino alla scadenza del rapporto indicata sulla richiesta e, comunque, per un periodo non eccedente i 12 mesi. L'account \`e rinnovabile. I dipendenti esterni possono essere abilitati, su richiesta formale del Responsabile dell'Unit\`a Operativa che intrattiene il rapporto di collaborazione, all'accesso ai file server della stessa. Qualsiasi richiesta di abilitazione all'accesso a file server di Unit\`a Operative diverse da quella che intrattiene il rapporto con soggetti non dipendenti deve essere autorizzata, su richiesta formale e motivata del Responsabile dell'Unit\`a Operativa interessata, dall'Ente che ha la competenza sui dati aziendali in oggetto (c.d. ``proprietario dei dati''). Nel richiedere/concedere le autorizzazioni i Responsabili di Unit\`a Operativa devono ispirarsi ai principi ``accesso sulla base della effettiva necessit\`a di conoscere'' e ``accesso con il minimo privilegio operativo necessario''. Il venir meno dei presupposti per l'accesso ai servizi di rete da parte dei dipendenti esterni deve essere tempestivamente notificato al SIA, per le azioni del caso, a cura del Dipendente dell'Azienda Ospedaliera di Melegnano di riferimento per il terzo.
+		\section{Gestione strumenti di identificazione / autentificazione}
+			Tutti gli utenti dei sistemi informativi aziendali sono tenuti ad assicurare la massima cura e riservatezza degli strumenti d'identificazione/autenticazione assegnati (smart card, badge, password, ecc\dots) e ad utilizzarli in forma esclusivamente personale.
+			Lo strumento di autenticazione personale, o le credenziali di accesso ai sistemi informativi, non sono delegabili (personificazione). La gestione delle password utilizzate per accedere ai sistemi informativi (sblocco screen saver, accesso ad applicazioni, ecc\dots) \`e di esclusiva responsabilit\`a dell'utente.
+			
+			Per un corretto utilizzo della password \`e richiesta l'osservanza di specifiche regole che sono state definite in incontri con i sistemisti.
+			I dispositivi software che controllano gli accessi ai sistemi informatici, ove tecnicamente possibile, devono essere configurati in modo tale da consentire soltanto l'inserimento di password che rispettino le regole citate. L'autenticazione deve avvenire entro un numero definito e ristretto di tentativi. Superato il numero massimo di tentativi, l'account deve essere bloccato.
+			
+		\section{Dotazioni hardware}
+			Le dotazioni informatiche di tipo hardware assegnate ai dipendenti possono essere di norma:
+			\begin{itemize}
+				\item Postazione informatica fissa;
+				\item Personal computer portatile.
+			\end{itemize}
+			
+			\subsection{Postazione informatica fissa (desktop)}
+				\label{fisso}
+				La postazione di lavoro fissa \`e costituita da un'unit\`a centrale, dai necessari componenti periferici (monitor, tastiera, eventuale stampante, ecc\dots) e dal software applicativo previsto dallo standard aziendale e/o da eventuali standard di Unit\`a Operativa.
+				
+				La postazione di lavoro \`e un bene dell'Azienda che viene preso in carico dall'assegnatario al momento della consegna.
+				L'assegnatario \`e tenuto ad usare la postazione esclusivamente per lo svolgimento delle attivit\`a riconducibili al rapporto instaurato con l'Azienda Ospedaliera di Melegnano e ad adottare tutte le cautele necessarie a garantire il suo corretto funzionamento e la tutela delle informazioni accedute e/o elaborate tramite lo stesso.
+				L'assegnatario \`e in particolare tenuto ad osservare le seguenti regole:
+				\begin{itemize}
+					\item il software, i dati e le risorse dell'Azienda Ospedaliera di Melegnano devono essere utilizzati solo per scopi riconducibili a migliorare i servizi erogati agli utenti;
+					\item le configurazioni hardware delle risorse assegnate in uso non devono essere modificate autonomamente (tramite, ad esempio, il collegamento di ulteriori apparati, l'alterazione dello schema dei collegamenti elettrici, di rete, ecc\dots);
+					\item per i software installati sul personal computer aziendale deve esistere, se prevista, regolare licenza d'uso\footnote{Il dipendente che utilizzi software privo di licenza pu\`o essere sanzionato sulla base del D.Lgs. 29 dicembre 1992, n. 518\cite{lol_9}, sulla tutela giuridica del software e dalla Legge 18 agosto 2000, n. 248\cite{lol_10}, contenente nuove norme di tutela del diritto d'autore.};
+					\item \`e tassativamente vietato l'impiego di programmi a scopo di intrusione ed intercettazione di dati (ad esempio sniffer, logger, ``malicious'' software in genere);
+					\item deve essere attivato il blocco automatico della workstation associato allo screen-saver. Il blocco deve essere impostato per avviarsi dopo non più di 5/10 minuti di inattività della workstation.
+					\item il personal computer non deve essere lasciato incustodito quando \`e connesso alla rete aziendale. Anche in caso di breve assenza il computer deve essere bloccato tramite le funzionalit\`a offerte dal sistema operativo (es. ``blocca computer'' previa pressione contemporanea dei tasti Ctrl+Alt+Canc);
+					\item non devono essere attivati collegamenti alla rete pubblica via modem da postazioni contemporaneamente connesse alla rete informatica aziendale;
+					\item non devono essere utilizzate cartelle condivise tra soggetti di Unit\`a Operative diverse da quella di appartenenza;
+					\item devono essere sempre seguite le istruzioni contenute in eventuali messaggi distribuiti dal SIA, i quali dovrebbero comparire in automatico per l'aggiornamento software;
+					\item guasti, malfunzionamenti e virus devono essere segnalati immediatamente al SIA;
+					\item deve essere effettuata periodicamente una scansione antivirus del personal computer;
+					\item periodicamente devono essere salvati i dati contenuti nel personal computer su supporti alternativi (server di rete, supporti rimovibili, ecc\dots), al fine di disporre di una copia di ripristino nel caso di eventuali perdite dovute ad errori e/o guasti;
+					\item in caso di restituzione dell'unità centrale per interventi di manutenzione/sostituzione, devono essere eliminate le informazioni ad uso riservato aziendale, ad uso ristretto o contenenti dati personali, spostandole temporaneamente su supporti alternativi (floppy disk, CD, aree di rete protette, ecc\dots); L'Azienda si riserva il diritto di bloccare in automatico programmi comunemente riconosciuti/identificati come potenzialmente dannosi. In caso di cessazione del rapporto di lavoro o di collaborazione il contenuto dell'hard disk rimane nella disponibilit\`a dell'Azienda. \`E responsabilit\`a di SIA garantire la formattazione degli hard disk presenti nei personal computer definitivamente restituiti.
+				\end{itemize}
+			
+			\subsection{Stampanti}
+				Le stampanti di rete e quelle utilizzate in condivisione tra più utenti devono essere di norma posizionate in ambienti controllati (deve essere evitata, nei limiti del possibile, l'installazione nei corridoi o nei punti di ristoro). In ogni caso \`e necessario recuperare nel pi\`u breve tempo possibile i documenti inviati in stampa, al fine di evitare l'accesso o la sottrazione da parte di soggetti non autorizzati.
+			
+			\subsection{Personal computer portatili (laptop)}
+				L'assegnatario di computer portatile (laptop), oltre a dover rispettare le prescrizioni di sicurezza previste nel paragrafo \ref{fisso}, è tenuto ad adottare le necessarie precauzioni richieste anche dalle specifiche condizioni di utilizzo in cui si trova ad operare. In particolare:
+				\begin{itemize}
+					\item il personal computer portatile fornito dall'Azienda Ospedaliera di Melegnano deve essere collegato periodicamente alla rete aziendale in modo da garantire l'aggiornamento automatico del software antivirus. Nel caso in cui tale operazione non sia attuabile, deve essere contattato SIA per effettuare l'aggiornamento manuale;
+					\item il collegamento alla rete dell'Azienda Ospedaliera di Melegnano non deve essere effettuato con dispositivi di elaborazione diversi da quelli forniti dall'azienda;
+					\item non devono essere utilizzati abbonamenti privati Internet dal laptop (connessioni non protette alla rete Internet possono consentire l'ingresso di virus e/o cavalli di troia che potrebbero successivamente essere propagati alla rete aziendale).
+				\end{itemize}
+				
+				Fa eccezione il caso di connessione Internet per l'accesso alla rete aziendale in modalità VPN, la cui attivazione \`e subordinata a comprovata e giustificata necessit\`a operativa ed all'installazione sul portatile, da parte di SIA, di un adeguato sistema di protezione atto a salvaguardare l'integrit\`a della rete stessa a fronte di possibili azioni di hackeraggio.
+				\begin{itemize}
+					\item se il terminale viene usato in pubblico (ad esempio in aereo o in treno) l'utilizzatore \`e tenuto ad operare nella massima riservatezza in quanto i dati (in particolare le password) possono essere intercettati da osservatori indiscreti;
+					\item devono essere adottate con diligenza tutte le cautele, dettate dal buon senso e dalle specifiche situazioni, atte a prevenire il furto del terminale. \`E comunque tassativamente vietato lasciare terminali all'interno di veicoli parcheggiati;
+					\item devono essere utilizzate tutte le dotazioni di sicurezza allo scopo fornite dall'Azienda (es. cavi di ancoraggio a strutture fisse).
+					\item devono essere conservati sul disco interno del laptop soltanto i file strettamente necessari. \`E opportuno privilegiare il salvataggio dei file sulle aree di rete disponibili. In caso di cessazione del rapporto di lavoro o di collaborazione il contenuto dell'hard disk rimane nella disponibilit\`a dell'Azienda.
+				\end{itemize}
+				
+				I soggetti esterni all'Azienda possono utilizzare i propri computer portatili per la connessione alla rete dell'Azienda Ospedaliera di Melegnano solo qualora:
+				\begin{itemize}
+					\item siano stati espressamente autorizzati da un UOC con il modulo di richiesta creazione account (ed abbiano conseguentemente sottoscritto la ``Dichiarazione di riservatezza e consenso ex D.Lgs. 196/03'');
+					\item utilizzino esclusivamente software licenziato;
+					\item utilizzino software antivirus commerciale regolarmente aggiornato prima di ogni connessione alla rete dell'Azienda e identificato da SIA. Controlli sulla presenza, nelle macchine di terzi, delle funzionalit\`a per la sicurezza dei sistemi informativi aziendali possono essere effettuate in qualsiasi momento da SIA. \`E tassativamente vietato connettere contemporaneamente i laptop ad altre reti tramite linee telefoniche.
+				\end{itemize}
+			
+			\subsection{Profilo utente}
+				A ciascun assegnatario di personal computer aziendale \`e attribuito di default il profilo base ``User'' sia in caso di Sistema Operativo \emph{Microsoft Windows Seven} che in caso di Sistema Operativo \emph{Microsoft Windows XP} o superiore (praticamente tutto il parco macchine aziendale gestito dal SIA ha sistemi operativi \emph{Microsoft}). Fatto salvo quanto eventualmente stabilito dalla Gestione Risorse Umane per i dipendenti facenti parte di determinati gruppi di lavoro, i diritti di amministratore locale della macchina (profilo Administrator) possono essere riconosciuti all'utente, su richiesta scritta del Responsabile dell'Unità Operativa di riferimento, solo in presenza di giustificati motivi connessi alle mansioni/attività svolte. Controlli sul mantenimento delle funzionalit\`a per la sicurezza dei sistemi informativi aziendali possono essere effettuate in qualsiasi momento da SIA. I diritti di amministratore della macchina sono revocati in caso di trasferimento dell'utente ad altra Unit\`a Operativa.
+			
+			\subsection{Ciclo di vita delle dotazioni informatiche}
+				SIA garantisce la tracciabilità e la gestione patrimoniale per tutti i beni di microinformatica acquisiti da catalogo; a tal fine \`e indispensabile il suo intervento diretto nella attivit\`a sotto riportate. A valle dell'acquisizione/assegnazione dei beni come descritto nei paragrafi precedenti, SIA gestisce le fasi successive secondo i seguenti principi:
+				
+				\subsubsection{Rinnovo tecnologico della Dotazione Standard}
+					SIA provvede periodicamente di propria iniziativa al rinnovo tecnologico del parco installato in funzione di diversi parametri quali:
+					\begin{itemize}
+						\item Evoluzione delle tecnologie;
+						\item Adeguamento a norme relative alla sicurezza;
+						\item Valutazioni economiche legate al bene aziendale.
+					\end{itemize}
+					
+				\subsubsection{Upgrade Hardware della Dotazione Standard}
+					A fronte di richieste di upgrade, SIA si fa carico di procedere con la fornitura o di dare indicazioni utili all'acquisto da parte della Direzione richiedente.
+					
+				\subsubsection{Movimentazioni fisiche}
+					Quando SIA svolge attivit\`a sulle PdL (installazione, riparazione, ritiro per dismissione) le movimentazioni associate sono gestite da SIA stessa. In caso di trasloco ad altra ubicazione, l'utente o la Direzione richiede la movimentazione alla funzione Servizi Generali, che notifica a SIA la nuova ubicazione dei beni traslocati, perché SIA. possa continuare ad assicurare l'erogazione dei propri servizi.
+				
+				\subsubsection{Restituzione}
+					Le dotazioni standard devono essere restituite nei seguenti casi:
+					\begin{itemize}
+						\item alla cessazione del rapporto di lavoro;
+						\item all'acquisto di una dotazione aggiuntiva che la sostituisca nell'uso.
+					\end{itemize}
+				\subsubsection{Riassegnazione}
+					La riassegnazione di beni informatici sarà a cura di SIA.
+					
+				\subsubsection{Dismissione}
+					SIA gestisce la dismissione di tutti i beni di microinformatica per i quali provveder\`a ad effettuare lo spegnimento dei canoni di manutenzione e di noleggio.
+					
+		\section{Segnalazione eventi anomali}
+			\subsection{Responsabilit\`a degli assegnatari}
+				Gli assegnatari sono responsabili del corretto utilizzo e della conservazione dei beni di microinformatica in maniera ottimale.
+			\subsection{Definizione}
+				Per evento anomalo riferito alle PdL informatiche si intende qualsiasi fatto o atto, da qualsiasi causa determinato, che presenti almeno una delle seguenti caratteristiche:
+				\begin{itemize}
+					\item il furto, lo smarrimento o il danneggiamento di beni aziendali della PdL;
+					\item l'accesso non autorizzato ai sistemi informativi;
+					\item l'introduzione nei sistemi informatici di malicious code (virus, worm, ecc\dots);
+					\item l'intercettazione e/o la modifica non autorizzata di informazioni;
+					\item le anomalie di funzionamento dei programmi;
+					\item le interruzioni dei servizi di rete interni e/o esterni, da qualsiasi causa determinati (es. guasti, interventi programmati);
+					\item i guasti tecnici di sistemi non facenti parte della rete di TLC;
+					\item i guasti tecnici di sistemi atti alla memorizzazione di grandi quantit\`a di dati;
+					\item i guasti tecnici di sistemi atti alla gestione degli aspetti operativi della rete di TLC;
+				\end{itemize}
+			\subsection{Classificazione degli eventi anomali}
+				In relazione alle caratteristiche ed alla gravit\`a dei danni determinati, gli eventi anomali si classificano in:
+				\begin{enumerate}
+					\item Eventi che non interrompono n\'e compromettono l'attivit\`a aziendale; sono tali i furti/danni di lieve entit\`a a beni informatici aziendali assegnati nominativamente (es. desktop) o in comodato (es. laptop, telefoni radiomobili) al dipendente, il quale non \`e impossibilitato a proseguire la sua attivit\`a lavorativa.
+					\item Eventi che possono rallentare ma non interrompere n\'e compromettere le attivit\`a/il business aziendale furti/i danni/la perdita di apparati e/o beni informatici non strategici per l'Azienda, come i guasti e gli attacchi lievi ai sistemi informatici.
+					\item Eventi che possono interrompere ma non compromettere le attivit\`a; costituiscono esempio la perdita di apparati e/o beni strategici per l'Azienda, i guasti e gli attacchi gravi ai sistemi informatici.
+				\end{enumerate}
+				
+				La classifica dell'evento che coinvolge desktop e/o laptop contenenti informazioni strategiche per l'Azienda (circostanza da evidenziare nel Modulo SEA, Modulo per la segnalazione degli Eventi Anomali) deve essere attribuita dall'assegnatario del bene.
+			\subsection{Principi ed adempimenti di carattere generale}
+				Chiunque sia coinvolto o venga a conoscenza per la propria attivit\`a o in maniera casuale di fatti e/o atti riconducibili alla definizione di evento anomalo deve immediatamente avvertire telefonicamente:
+				\begin{itemize}
+					\item il SIA;
+					\item il Responsabile della propria Unit\`a Operativa.
+				\end{itemize}
+
+				A valle delle segnalazioni:
+				\begin{itemize}
+					\item il dipendente all'uopo incaricato dal Responsabile di ciascuna Unit\`a operativa, deve debitamente compilare il Modulo SEA e, sottoporlo alla firma del proprio Responsabile e trasmetterlo via fax ed in originale al SIA;
+					\item trasmetterlo contestualmente via e-mail al SIA ed al proprio Responsabile.
+				\end{itemize}
+				Salvo casi eccezionali, e comunque previo accordo con il SIA, l'invio del Modulo SEA deve essere effettuato entro 24 ore dalla segnalazione telefonica.
+
+				Eventi che comportano danni ai beni mobili ed immobili come furti/smarrimenti/atti vandalici/sabotaggi devono essere tempestivamente denunciati alle Autorit\`a competenti (Carabinieri o Polizia di Stato) a cura:
+				\begin{itemize}
+					\item del dipendente/terzo proprietario del bene (denuncia facoltativa);
+					\item del dipendente assegnatario/comodatario del bene aziendale;
+					\item del Responsabile dell'Unit\`a Organizzativa che gestisce o utilizza il bene aziendale.
+				\end{itemize}
+		\section{Utilizzo e gestione dei supporti di memoria}
+			I supporti di memoria e/o di scambio dati riconosciuti resi disponibili dall'Azienda sono:
+			\begin{itemize}
+				\item aree condivise di rete (File Server);
+				\item cartelle condivise su personal computer;
+				\item supporti rimovibili.
+			\end{itemize}
+			Non \`e autorizzato l'utilizzo di sistemi di condivisione alternativi a quelli sopra indicati; in particolare \`e tassativamente vietata l'installazione di strumenti finalizzati alla realizzazione di sistemi di condivisione e scambio documenti (prodotti per l'utilizzo del ``peer to peer'', ecc\dots).
+			Per l'utilizzo degli strumenti aziendali di file sharing valgono le seguenti regole generali:
+			\begin{itemize}
+				\item deve essere evitato qualsiasi impiego che ne possa compromettere la disponibilit\`a per gli utilizzi consentiti;
+				\item non devono essere utilizzati gli strumenti di file sharing per scopi diversi da quelli strettamente professionali. Qualunque file che non sia legato all'attività lavorativa non pu\`o pertanto essere dislocato, neppure per brevi periodi in queste unit\`a. Questo in particolare per i documenti non lavorativi che contengano in forma digitalizzata immagini (.JPG, .GIF, ecc.), suoni (.MP3, .WAV, ecc\dots) o filmati (.MPG, .AVI, ecc\dots). Quanto detto prescinde dal fatto che i documenti citati siano legittimamente posseduti;
+				\item non devono essere condivisi o scambiati programmi software privi di licenza d'uso o non previsti dallo standard aziendale o di unit\`a;
+				\item non deve essere occupato spazio di memoria con dati obsoleti o non più necessari. L'Azienda si riserva la facolt\`a di procedere alla rimozione di ogni file o applicazione che riterr\`a essere pericolosi per la sicurezza del sistema ovvero acquisiti in violazione di quanto previsto dal presente documento.
+			\end{itemize}
+			
+			\subsection{File server di rete}
+				I file server di rete sono supporti di memoria organizzati in aree ad accesso circoscritto ed in grado di ospitare consistenti quantit\`a di dati ed informazioni. Tali aree rappresentano una risorsa aziendale pregiata il cui scopo \`e quello di consentire la condivisione di file tra i diversi soggetti autorizzati, di renderne disponibile l'accesso da qualsiasi postazione connessa alla rete aziendale nonch\'e di ridurne al minimo il rischio di perdita attraverso sistematici backup effettuati a livello centralizzato. Per l'utilizzo dei File Server devono essere osservate le seguenti prescrizioni:
+				\begin{itemize}
+					\item i file server devono essere utilizzati per salvare le informazioni aziendali rilevanti per lo svolgimento della propria attivit\`a lavorativa;
+					\item l'elenco delle persone autorizzate ad accedere ad una specifica area/cartella deve essere verificato prima dell'utilizzo della stessa per il salvataggio di informazioni ad uso riservato aziendale, ad uso ristretto e/o di dati personali. La verifica può essere effettuata tramite SIA;
+					\item lo spazio di memoria impegnato deve essere ottimizzato attraverso l'utilizzo di programmi ``compattatori'' (ad esempio, winzip).
+				\end{itemize}
+
+			\subsection{Cartelle condivise su personal computer}
+				Una cartella condivisa su un personal computer \`e costituita da una porzione di disco locale configurata in modo da poter essere accessibile via rete da utilizzatori diversi. Il ricorso alle cartelle condivise su personal computer deve essere strettamente limitato ai casi in cui non sia disponibile un servizio di file sharing alternativo. La loro configurazione deve essere tale da consentirne l'accesso soltanto ad un insieme di utenti specificamente autorizzati. \`E necessario, pertanto, porre attenzione nell'eseguire l'operazione al fine di evitare che la cartella sia visibile ed accessibile a tutti gli utenti della rete aziendale. Non \`e comunque consentita la condivisione di cartelle tra soggetti di Unità Operative diverse da quella di appartenenza.
+				
+			\subsection{Supporti rimovibili}
+				I supporti di memoria rimovibili (floppy disk, compact disk, pen-drive ecc\dots) devono essere gestiti adottando misure di sicurezza proporzionate al livello di criticit\`a delle informazioni in essi contenute. Non \`e consentito scaricare files contenuti in supporti rimovibili non aventi alcuna attinenza con la propria prestazione lavorativa. \`E sempre necessario verificare il contenuto informativo del supporto di memoria prima della sua consegna a terzi e prima della eliminazione/distruzione. In particolare, i supporti contenenti informazioni ad uso riservato aziendale, ad uso ristretto e/o dati personali, devono essere:
+				\begin{itemize}
+					\item conservati in luoghi protetti (ad esempio, armadi e cassettiere chiusi a chiave);
+					\item etichettati in modo da garantire la rapida rintracciabilit\`a dei contenuti;
+				\end{itemize}
+				
+		\section{Servizi per la comunicazione verso / dall'esterno}
+			L'Azienda riconosce e rende disponibili i seguenti strumenti/servizi di comunicazione elettronica:
+			\begin{itemize}
+				\item Posta elettronica;
+				\item Accesso Internet;
+				\item Accesso da remoto alla rete aziendale.
+			\end{itemize}
+			\subsection{Posta elettronica}
+				Il servizio di posta elettronica aziendale prevede le seguenti tipologie di mailbox (o cassetta postale):
+				\begin{itemize}
+					\item Mailbox personale dipendente;
+					\item Mailbox di gruppo.
+				\end{itemize}
+				Tramite le liste di distribuzione istituzionali (generabili esclusivamente su richiesta dalla Gestione Risorse Umane) e nominali (generabili su richiesta di un UOC) \`e possibile l'invio di messaggi collettivi con rapidit\`a ed affidabilit\`a. Per ragioni di ottimizzazione delle risorse informatiche, la mailbox ha uno spazio di memoria limitato e predefinito, superato il quale \`e possibile soltanto ricevere messaggi senza poterne inviare di nuovi.
+				\subsubsection{Mailbox personale dipendente}
+					La mailbox rilasciata al dipendente \`e associata in modo univoco al relativo titolare tramite l'abbinamento al codice identificativo utilizzato per l'accesso alla rete. I dipendenti sono assegnatari della mailbox per tutta la durata del rapporto di lavoro.
+					
+				\subsubsection{Mailbox di gruppo}
+					Una mailbox di gruppo pu\`o essere rilasciata ad una Unit\`a Operativa e/o ad un gruppo di progetto, limitatamente ai casi di comprovata necessit\`a da valutarsi a cura del relativo Responsabile (UOC). Pu\`o essere utilizzata da pi\`u utenti specificamente autorizzati, ma deve essere sempre identificato un referente responsabile del suo corretto utilizzo (c.d. ``proprietario''). Le mailbox di gruppo sono di norma abilitate soltanto alla ricezione dei messaggi; la possibilit\`a di inviare messaggi a nome della mailbox di gruppo, sia all'interno che all'esterno dell'Azienda Ospedaliera di Melegnano, deve essere espressamente autorizzata dal Responsabile dell'Unit\`a Operativa (UOC). Non \`e consentito l'uso della mailbox di gruppo per lo scambio di documenti ad uso riservato aziendale o ristretto.
+				
+				\subsubsection{Regole di utilizzo}
+					La posta elettronica \`e un bene dell'azienda il cui utilizzo deve essere:
+					\begin{itemize}
+						\item correlato alle attivit\`a produttive;
+						\item coerente con gli obiettivi aziendali;
+						\item rispettoso delle regole di buon senso;
+						\item conforme alle leggi vigenti in materia (cfr. Legge n. 547/1993 sulla criminalit\`a informatica\cite{lol_ultimo}).
+					\end{itemize}
+					Gli utenti sono comunque tenuti al rispetto delle seguenti regole:
+					\begin{itemize}
+						\item non inviare informazioni ad uso riservato aziendale, ad uso ristretto o personali (dati sensibili e dati giudiziari), a meno di adottare appositi strumenti di crittografia;
+						\item non inviare e-mail non richieste (spamming) o per condurre attacchi;
+						\item non svolgere attivit\`a di informazione e/o propaganda politica, religiosa o altro;
+						\item non ricevere o distribuire materiale pornografico (la visione, la conservazione e/o la distribuzione di materiale pedopornografico è illegale);
+						\item non ricevere, memorizzare o spedire materiale che viola il copyright, il marchio o altre leggi sul diritto d'autore;
+						\item non devono essere utilizzati strumenti di crittografia diversi da quelli autorizzati e forniti dall'Azienda;
+						\item non devono essere aperti attachment a messaggi provenienti da mittenti sconosciuti e/o non attinenti alle attivit\`a aziendali senza aver prima effettuato una scansione con un prodotto antivirus fornito dall'Azienda, aggiornato e correttamente configurato;
+						\item deve essere ridotta il pi\`u possibile la dimensione dei file da allegare ad un messaggio di posta elettronica (allo scopo possono essere utilizzati formati compressi come, ad esempio, *.zip, *.jpg, ecc\dots);
+						\item non deve essere utilizzato l'indirizzo di posta elettronica aziendale per l'iscrizione a mailing list e/o la partecipazione a chat line/comunit\`a virtuali non attinenti alle proprie mansioni o non sufficientemente affidabili;
+						\item non deve essere modificata/alterata la configurazione dell'applicativo software dedicato alla gestione della posta elettronica;
+						\item non devono essere inviati messaggi offensivi o espressi commenti inappropriati che possano recare offesa alla persona e/o danno all'immagine aziendale;
+						\item non deve essere modificato il formato dei messaggi (di norma impostato ad RTF) per trasformarli al tipo HTML, che risulta pi\`u ``pesante'' e pi\`u vulnerabile. \`E buona norma di comportamento inviare la ricevuta di ritorno per i messaggi ricevuti che la richiedono.
+					\end{itemize}
+					Sono raccomandati:
+					\begin{itemize}
+						\item l'inserimento in coda ai messaggi spediti dei propri riferimenti (in formato testo, senza allegare immagini);
+						\item una gestione attenta ed oculata dell'archivio di posta, al fine di ottimizzare l'impiego delle risorse di memoria e di evitare eventuali malfunzionamenti dei sistemi.
+					\end{itemize}
+					In particolare, \`e opportuno:
+					\begin{itemize}
+						\item spostare sistematicamente nell'archivio ``cartelle personali'' i messaggi ricevuti/inviati, allo scopo di non superare il limite di spazio della mailbox;
+						\item controllare periodicamente la dimensione del suddetto archivio per evitare di raggiungere dimensioni superiori a quelle consentite che potrebbero comportare malfunzionamenti del personal computer e perdita di messaggi;
+						\item verificare periodicamente il contenuto delle ``cartelle personali'' e rimuovere i messaggi obsoleti e/o non più necessari;
+						\item estrarre i documenti ricevuti sulla posta elettronica ed eliminare, eventualmente, il relativo messaggio di accompagnamento.
+					\end{itemize}
+					\begin{comment}
+						In caso di cessazione del rapporto di lavoro/collaborazione, SIA deve porre la mailbox in stato di blocco per 90 giorni. In tale periodo:
+						la mailbox non può né inviare, né ricevere messaggi;
+						nel caso di arrivo di una e-mail destinata alla mailbox deve essere notificato al mittente un apposito messaggio di avviso;
+						la mailbox non deve essere visibile nella rubrica degli indirizzi aziendali.
+						In caso di cessazione del rapporto di lavoro o di collaborazione il contenuto della mailbox rimane nella disponibilità dell’Azienda. Al termine dei 90 giorni la mailbox deve essere cancellata in modo definitivo.
+					\end{comment}
+			\subsection{Internet}
+				La connessione ad Internet resa disponibile dall'Azienda \`e volta a consentire il reperimento di dati ed informazioni utili allo svolgimento delle attivit\`a legate a migliorare i servizi erogati agli utenti, secondo le regole che governano l'utilizzo di tutte le postazioni, i servizi e le abilitazioni informatiche. Il collegamento tra la rete interna ed Internet \`e appositamente realizzato per garantire elevati livelli di sicurezza contro il rischio di intrusioni indesiderate e di importazione di virus dall'esterno. Per tale motivo è rigorosamente vietato instaurare connessioni alternative a quella aziendale per accedere ad Internet dalla propria postazione di lavoro (ad esempio, tramite l'utilizzo di un modem e di un abbonamento privato ad un Internet Service Provider). Al pari della posta elettronica, l'utilizzo di Internet deve essere:
+				\begin{itemize}
+					\item correlato alle attivit\`a produttive;
+					\item coerente con gli obiettivi aziendali;
+					\item rispettoso delle regole di buon senso;
+					\item conforme alle leggi vigenti in materia (cfr. Legge n. 547/1993 sulla criminalit\`a informatica).
+				\end{itemize}
+				Oltre a quanto sopra, gli utenti sono tenuti al rispetto delle seguenti regole:
+				\begin{itemize}
+					\item non deve essere scaricato software da Internet, anche se provvisto di regolare licenza d'uso (``freeware'' o ``shareware'');
+					\item non deve essere effettuata l'importazione di materiale protetto dal diritto d'autore e, in generale, di file audio, video o eseguibili non correlati al fine di migliorare i servizi erogati agli utenti;
+					\item non devono essere ricercati o visitati siti non eticamente corretti (quali i siti pornografici), i quali sono spesso veicolo di diffusione di virus informatici. Al riguardo, l'Azienda si riserva il diritto di bloccare in automatico il collegamento a siti comunemente riconosciuti/identificati come indecorosi/dannosi;
+					\item non devono essere fornite le proprie generalit\`a e/o quelle dell'Azienda a siti che non siano di consultazione professionale e sufficientemente affidabili;
+					\item \`e vietata la partecipazione, per motivi non professionali, a forum, l'utilizzo di chat line e le registrazioni in guest book anche utilizzando pseudonimi (o nickname);
+					\item non si deve discutere di processi o iniziative riservate dell'Azienda Ospedaliera in gruppi di discussione (Newsgroup) o chat room;
+					\item non deve essere utilizzato il nome dell'Azienda Ospedaliera di Melegnano o i relativi loghi all'interno di strumenti ed applicazioni Internet (posta elettronica, siti Web) senza l'espresso consenso del UOC;
+					\item non devono essere installate patch di sicurezza relative a prodotti (es. \emph{Internet Explorer}, \emph{Microsoft Exchange}, ecc\dots) installati sui dispositivi dell'Azienda Ospedaliera di Melegnano, senza un'esplicita autorizzazione di SIA.
+				\end{itemize}
+			\subsection{Accesso da remoto}
+				Il servizio ``Accesso da remoto'' consente all'utente di collegarsi dall'esterno alla rete aziendale attraverso l'impiego di apparati connessi ad una normale linea telefonica. Tale tipo di accesso aggiunge vulnerabilit\`a in quanto aumenta il numero di punti di accesso alla rete informatica interna. Il servizio \`e pertanto reso con regole, limitazioni, forme e modalit\`a di autenticazione che variano in funzione delle risorse di rete messe specificamente a disposizione dell'utente. In particolare:
+				\begin{itemize}
+					\item nel caso di ``Accesso per Internet Webmail'' (accesso via browser alla casella di posta elettronica) l'autenticazione pu\`o avvenire attraverso account di dominio. In caso di connessione effettuata con terminali e/o da locali non aziendali (es. Internet Point) il dipendente deve:
+						\begin{itemize}
+							\item astenersi, se non indispensabile, dallo scaricare documenti aziendali;
+							\item rimuovere completamente dopo la visualizzazione, anche dal cestino, i documenti scaricati;
+							\item interrompere la connessione in caso di allontanamento - anche breve - dal terminale;
+							\item avere cura di cancellare almeno la cronologia degli eventi ed i relativi cookies.
+						\end{itemize}
+					\item nel caso di ``Accesso per Office Automation'' (accesso da remoto alla casella di posta elettronica, a file share e a servizi web) l'autenticazione deve avvenire almeno mediante specifici user id e password. La connessione deve essere effettuata esclusivamente con terminali forniti dall'Azienda Ospedaliera di Melegnano.
+				\end{itemize}
+
+		\section{Gestione incidenti di sicurezza}
+			\subsection{Virus informatici}
+				Gli utenti devono usare il software antivirus fornito dall'Azienda Ospedaliera di Melegnano sui computer in dotazione (desktop e laptop) per far eseguire regolarmente la scansione di:
+				\begin{itemize}
+					\item boot sector;
+					\item programmi in esecuzione;
+					\item dati memorizzati.
+				\end{itemize}
+				Se un utilizzatore individua un virus, una variazione nella configurazione o un comportamento ``anomalo'' del computer, deve immediatamente disconnettere lo stesso dalla rete e avvertire il SIA. Quest'ultimo, in relazione alle criticit\`a reali o potenziali, deve informare tutti gli utenti dell'individuazione del virus, del fatto che potrebbe infettare anche i lori sistemi e fornire l'assistenza nella rimozione.
+				
+				La disabilitazione del software antivirus installato sulle dotazioni informatiche \`e rigorosamente vietata.
+				Particolare cautela va prestata dall'utilizzatore in caso di:
+				\begin{itemize}
+					\item utilizzo di supporti di memoria precedentemente adoperati da altri soggetti o impiegati su postazioni non aziendali;
+					\item ricezione di applicazioni e dati da soggetti esterni (fornitori, consulenti, ecc\dots).
+				\end{itemize}
+			\subsection{Violazioni alla sicurezza delle informazioni}
+				Le situazioni di potenziale/reale perdita di riservatezza, integrit\`a e/o disponibilit\`a delle informazioni trattate, nonch\'e di violazione/furto/smarrimento dei propri meccanismi di autenticazione (password, smart card, ecc\dots) devono essere tempestivamente comunicate al Responsabile dell'Unità Operativa di appartenenza (o al Dipendente dell'Azienda Ospedaliera di Melegnano di riferimento del terzo in caso di soggetti esterni abilitati ad accedere ai sistemi informativi aziendali) e, con le modalit\`a previste dal capitolo ``Segnalazione eventi anomali'', al SIA. Contestualmente alla segnalazione devono essere modificate le eventuali password che si sospetta siano state violate.
+	
+	%altre robe
+	\chapter{Altre mansioni}
+		Come accennato nell'introduzione, oltre alla stesura di policy e procedure, all'interno dell'Azienda Ospedaliera di Melegnano ho svolto altre mansioni.
+		
+		\section{Fleet Management}
+			L'Azienda Ospedaliera di Melegnano ha sottoscritto un nuovo contratto con l'azienda \emph{Nordcom}, per la fornitura, manutenzione e assistenza del parco macchine; questo nuovo servizio doveva partire il primo dicembre 2012 e, come primissima cosa, si \`e dovuto fare un rapido censimento delle centinaia di postazioni presenti. Ho fornito assistenza e partecipato a riunioni per mettere in pratica questo censimento per tutte le sedi dell'Azienda.
+		
+		\section{GASS}
+			Il 5 Ottobre 2012 ho partecipato ad un corso di formazione in aula dal titolo ``formazione GASS'' con il rilascio del relativo attestato di partecipazione; finito il corso ho potuto fornire assistenza telefonica e di persona al personale del CUP\footnote{Centro Unico Prenotazioni} dell'ospedale di Melegnano, essendo quest'ultimo presidio ospedaliero pronto per l'attivazione di questo utile servizio al cittadino.
+		
+			\subsection{Cos'\`e il servizio GASS}
+				Il servizio GASS Abilita la fruizione del Fascicolo Sanitario Elettronico online da parte del Cittadino tramite una modalit\`a di accesso semplificato complementare a quello attuale ma: senza lettore, senza PDL cittadino\footnote{Software CRS, librerie crittografighe, necessarie per la lettura della Carta Regionale dei Servizi, che sarebbe la tessera sanitaria della Regione Lombardia}, senza PIN.
+				
+				\`E necessario solamente:
+				\begin{itemize}
+					\item possedere la CRS;
+					\item possedere un cellulare;
+					\item essere in possesso delle credenziali: ``User ID e Password'' e del codice OTP ``One time Password''.
+				\end{itemize}
+				
+			\subsection{Obiettivi del Fascicolo sanitario elettronico}
+				Prima di tutto la costituzione del FSE e il relativo trattamento \`e possibile solo con il consenso del Cittadino.\footnote{Il consenso da parte del cittadino \`e sempre facoltativo, ma la sua mancata espressione impedisce la costituzione del FSE}
+				
+				Il FSE fornisce una visione integrata e contestualizzata della storia sanitaria di un determinato Cittadino al medico che lo ha in cura.
+				
+				Consente di Rendere fruibili le informazioni al cittadino in modo diretto (referti on-line) tramite servizio di consultazione referti.
+				
+			\subsection{Visualizzazione dati Cittadino}
+				Il Cittadino Prestando il consenso, permette la creazione del FSE; l'accesso ai dati sanitari \`e consentito al Cittadino e ai soli Operatori Sanitari autorizzati:
+				\begin{itemize}
+					\item il proprio Medico di Base;
+					\item il Medico Ospedaliero che ha in cura il Cittadino per il periodo di degenza presso il reparto nel quale \`e ricoverato;
+					\item il Medico della Struttura di Ricovero Socio-Sanitaria presso la quale il Cittadino \`e ospitato (es. residenza per anziani);
+					\item il Medico specialista espressamente scelto dal Cittadino o che esercita la professione presso un'Unit\`a Operativa indicata (es. medico operante in Rete di Patologia);
+					\item ogni Medico al quale venga consegnata la CRS.
+				\end{itemize}
+				
+			\subsection{Il rilascio delle credenziali al Cittadino}
+				Le credenziali possono essere richieste dal Cittadino presos i presidi ospedalieri, in fase di accettazione; il Cittadino deve fornire all'Operatore un numero di cellulare per l'invio della seconda met\`a della password e dell'OTP.
+				
+			\subsection{Gestione consenso informato}
+				Con l'espressione del ``Consenso al trattamento dei dati'', il Cittadino consente la creazione del proprio Fascicolo Sanitario Elettronico.
+				
+				Il Fascicolo Sanitario Elettronico (FSE) \`e una cartella sanitaria virtuale che raccoglie e rende disponibili tutte le informazioni e i documenti clinici relativi a un cittadino (patient centric), prodotti sul territorio regionale da medici e operatori socio-sanitari anche di strutture diverse.
+				
+			\subsection{Gli SMS informativi}
+				Se in fase di rilascio credenziale il Cittadino ha aderito all'invio di SMS informativi, relativi alla pubblicazione di un nuovo documento clinico elettronico, ricever\`a via SMS la comunicazione che \`e ``disponibile per la consultazione di un nuovo documento''.
+				
+			\subsection{Accesso al FSE del Cittadino senza lettore: primo accesso}
+				Il Cittadino al primo accesso deve:
+				\begin{itemize}
+					\item digitare l'indirizzo web \url{www.crs.regione.lombardia.it/ssc}\cite{CSR}
+					\item inserire il seriale SmartCard (ultime 10 cifre)
+					\item inserire la password (prima parte stampata sul modulo cartaceo e una seconda parte inviata al cellulare)
+				\end{itemize}
+				
+		\section*{}
+			Il codice usa e getta (``One time Password'') viene inviato via SMS al numero di cellulare del Cittadino e il suo inserimento consente di ottenere un'autentificazione forte al servizio.
+			
+			Le tipologie di documenti consultabile dal Cittadino fanno riferimento a referti di laboratorio, ricovero, di pronto soccorso etc\dots e non alla Cartella Clinica.
+			
+			L'Operatore Call Center \`e abilitato:
+			\begin{itemize}
+				\item alla consultazione dello Stato di Attivazione account Cittadino
+				\item alla verifica della correttezza del numero cellulare del Cittadino (quello dove il Cittadino si aspetta di ricevere la seconda met\`a della Password)
+			\end{itemize}
+			
+			L'Assistenza al Cittadino \`e assicurata dal numero verde CRS, cos\`i come l'Assistenza all'Operatore per il Servizio GASS.
+			
+	\chapter{Conclusioni}
+		\`E stata un'esperienza molto formativa, anche se tre mesi non sono stati sufficienti per vedere appieno i risultati del lavoro svolto, specie per la policy erogazione servizi informatici sulle postazioni di lavoro; invece la procedura di gestione fermo programmato e non di interruzione dell'energia elettrica ho potuto vederla in atto, siccome si sono verificati dei black-out. Sono comunque molto ottimista nel poter tornare in futuro a far visita a Vizzolo Predabissi per poter vedere i risultati del nostro lavoro.
+		
+		Quello che mi aspetto di trovare \`e un ambiente aziendale nel quale sono state applicate le procedure e le policy su cui abbiamo lavorato, con la conseguenza che molti procedimenti aziendali risulteranno pi\`u agili, come ad esempio la fatidica gestione del sistema di ticket dell'\emph{Help Desk}.
+		
+		Mi aspetto quindi benefici sia da parte degli utenti che del personale stesso dell'ospedale, come ad esempio i sistemisti stessi che avranno meno casi \emph{ambigui} da gestire e, soprattutto, un aumento della sicurezza informatica aziendale.
+		
+		Sono in generale molto soddisfatto di questa esperienza e credo e spero di aver dato un buon contributo all'azienda.
+
+	\backmatter
+	
+	%LISTA DELLE FIGURE
+	\clearpage
+	\thispagestyle{empty}
+	\listoffigures
+	
+	%LISTA DELLE TABELLE
+	\clearpage
+	\thispagestyle{empty}
+	\listoftables
+
+	%SITOGRAFIA
+	%\clearpage
+	%\thispagestyle{empty}
+	
+	%BIBLIOGRAFIA
+	\clearpage
+	\thispagestyle{empty}
+	\begin{thebibliography}{17}
+		\bibitem{POA}
+		\emph{Il Piano Organizzativo Aziendale dell'Azienda Ospedaliera di Melegnano} \`e disponibile al seguente indirizzo: \url{http://www.aomelegnano.it/documenti-aziendali/POA.pdf/at_download/file}
+		
+		\bibitem{lol_secondo}
+		D.Lgs. 30 dicembre 1992, n. 502 \emph{Riordino della disciplina in materia sanitaria, a norma dell'articolo 1 della L. 23 ottobre 1992, n. 421} Pubblicato nella Gazz. Uff. 30 dicembre 1992, n. 305, S.O.
+		
+		\bibitem{primi_ref1}
+		\emph{Decreto Funzione Pubblica 28 novembre 2000} (in GU 10 aprile 2001, n. 84), \emph{Codice di comportamento dei dipendenti delle pubbliche amministrazioni}
+		
+		\bibitem{primi_ref2}
+		\emph{CCNL del Personale non dirigente del Comparto del Servizio Sanitario Nazionale} quadriennio 2006 - 2009
+		
+		\bibitem{primi_ref3}
+		\emph{Codice Disciplinare Dirigenza Medica e STPA}, disponibile all'indirizzo \url{http://www.aomelegnano.it/documenti-aziendali/Codice%20Disciplinare%20Dirigenza%20Medica%20e%20SPTA.pdf/at_download/file}
+		
+		\bibitem{primi_ref4}
+		Presidenza del consiglio dei ministri, \emph{direttiva N. 2/2009 del 26.05.2009} - nota come direttiva Brunetta
+		
+		\bibitem{lol_4}
+		Decreto Legislativo 30 giugno 2003, n. 196 \emph{``Codice in materia di protezione dei dati personali''}
+		
+		\bibitem{lol_5}
+		Decreto del presidente della Repubblica 14 novembre 2002, n. 313 \emph{``Testo unico delle disposizioni legislative e regolamentari in materia di casellario giudiziale, di anagrafe delle sanzioni amministrative dipendenti da reato e dei relativi carichi pendenti''}
+		
+		\bibitem{lol_8}
+		Art. 615 ter c.p. Art. \emph{Accesso abusivo ad un sistema informatico o telematico} pubblicato nella Gazzetta Ufficiale n. 36 del 13 febbraio 2003 - Supplemento Ordinario n.22
+		
+		\bibitem{lol_9}
+		Decreto legislativo 29 dicembre 1992 n. 518 \emph{Attuazione della direttiva 91/250/CEE relativa alla tutela giuridica dei programmi per elaboratore}
+		
+		\bibitem{lol_10}
+		Legge 18 agosto 2000, n. 248 \emph{``Nuove norme di tutela del diritto d'autore''} (Pubblicata nella Gazzetta Ufficiale n. 206 del 4 settembre 2000)
+		
+		\bibitem{lol_ultimo}
+		Legge 23 dicembre 1993 n. 547 (G. U. n. 305 del 30 dicembre 1993) \emph{Modificazioni ed integrazioni alle norme del codice penale e del codice di procedura penale in tema di criminalit\`a informatica}
+			
+		\bibitem{CSR}
+		\emph{Sito dedicato alla CRS di Regione Lombardia}, al seguente indirizzo \url{www.crs.regione.lombardia.it/ssc} si ha la possibilit\`a di accedere ai servizi on-line di Regione Lombardia.
+	\end{thebibliography}
+	
+	%RINGRAZIAMENTI
+	\chapter*{Ringraziamenti}
+		Ringrazio la prof.ssa Francesca Arcelli Fontana per la disponibilit\`a e la fiducia accordatemi.
+		
+		Ringrazio tutto lo staff del SIA dell'Azienda Ospedaliera di Melegnano, che mi hanno accolto e trattato come un figlio, in particolare il signor Emiliano Marzi, per avermi sopportato ed insegnato molto, il dott. Giorgio Sommariva per il supporto tecnico, Giuseppe Bisiacchi e Domenico Daniotti per aver condiviso la loro enorme esperienza e il direttore Marco Romanelli per avermi permesso questa esperienza.
+		
+		Ringrazio la mia famiglia per la pazienza e tutte le persone che hanno riposto in me la loro fiducia.
+		
+		Un saluto a tutti.
+		
+		\begin{flushright}
+			Simone Celia.
+		\end{flushright}
+\end{document}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
